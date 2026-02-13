@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Trigger confetti
         launchConfetti();
+        spawnPhotos();
     });
 
     function launchConfetti() {
@@ -78,4 +79,30 @@ document.addEventListener('DOMContentLoaded', () => {
             confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.7, 0.9), y: Math.random() - 0.2 } }));
         }, 250);
     }
+
+    function spawnPhotos() {
+        const photos = [
+            "assets/photos/IMG_4152.jpeg",
+            "assets/photos/IMG_5469.jpeg",
+            "assets/photos/IMG_5469.jpeg",
+            "assets/photos/IMG_5874.jpeg",
+            "assets/photos/IMG_5898.jpeg",
+            "assets/photos/IMG_6033.jpeg",
+            "assets/photos/IMG_6126.jpeg",
+            "assets/photos/IMG_6559.jpeg",
+            "assets/photos/IMG_8406.jpeg",
+            "assets/photos/IMG_8566.jpeg",
+        ];
+
+        const bursts = 25;
+        const intervalMs = 120;
+
+        let count = 0;
+        const timer = setInterval(() => {
+            popOnePhoto(photos[count % photos.length]);
+            count += 1;
+            if (count >= bursts) clearInterval(timer);
+        }, intervalMs);
+    }
+
 });
