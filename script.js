@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const noBtn = document.getElementById('no-btn');
     const questionContainer = document.getElementById('question-container');
     const successContainer = document.getElementById('success-container');
+    const successSound = document.getElementById('success-sound');
+    if (successSound) successSound.volume = 0.8;
     
     // "No" button evasion logic
     const moveNoButton = () => {
@@ -57,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Trigger confetti
         launchConfetti();
         spawnPhotos();
+        if (successSound) {
+            successSound.currentTime = 0;
+            successSound.play();
+        }
     });
 
     function launchConfetti() {
