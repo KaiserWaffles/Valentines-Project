@@ -141,11 +141,13 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.18);
     z-index: 9999;
     pointer-events: none;
-    animation: photoPop 2.5s ease-out forwards;
+    animation: bounceAround 4s ease-in-out infinite alternate;
 }
 
-@keyframes photoPop {
-    0%   { transform: scale(0.2) translateY(20px); opacity: 0; }
-    20%  { transform: scale(1.05) translateY(0); opacity: 1; }
-    100% { transform: scale(0.9) translateY(-120px); opacity: 0; }
+@keyframes bounceAround {
+    0%   { transform: translate(0,0) rotate(0deg); }
+    25%  { transform: translate(60px,-80px) rotate(15deg); }
+    50%  { transform: translate(-70px,60px) rotate(-10deg); }
+    75%  { transform: translate(80px,-40px) rotate(12deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
 }
