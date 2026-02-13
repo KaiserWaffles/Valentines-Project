@@ -105,4 +105,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, intervalMs);
     }
 
+    function popOnePhoto(src) {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Memory photo";
+    img.className = "floating-photo";
+
+    const margin = 20;
+    const size = 120;
+
+    const x = Math.random() * (window.innerWidth - size - margin * 2) + margin;
+    const y = Math.random() * (window.innerHeight - size - margin * 2) + margin;
+
+    img.style.left = `${x}px`;
+    img.style.top = `${y}px`;
+
+    document.body.appendChild(img);
+    img.addEventListener("animationend", () => img.remove());
+}
+
 });
