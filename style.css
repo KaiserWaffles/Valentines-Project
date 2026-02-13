@@ -131,3 +131,21 @@ body {
         font-size: 1rem;
     }
 }
+
+.floating-photo {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    z-index: 9999;
+    pointer-events: none;
+    animation: photoPop 2.5s ease-out forwards;
+}
+
+@keyframes photoPop {
+    0%   { transform: scale(0.2) translateY(20px); opacity: 0; }
+    20%  { transform: scale(1.05) translateY(0); opacity: 1; }
+    100% { transform: scale(0.9) translateY(-120px); opacity: 0; }
+}
